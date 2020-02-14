@@ -5,7 +5,6 @@ var sendgrid = require('sendgrid')('azure_3d95a80d87700eb5234ed1af36865832@azure
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
 exports.Mail_1 = function (to_, fullName, code) {
-    console.log()
 
 
 
