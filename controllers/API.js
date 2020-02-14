@@ -385,7 +385,7 @@ exports.searchBar = function (req, res, letters) {
         }
         else {
             console.log(data);
-            httpMsgs.sendJson(req, res, data);
+            res.json(data);
         }
     });
 }
