@@ -17,7 +17,7 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Name": "Team Flowlines"
                 },
                 "To": [{
-                    "Email": to_,
+                    "Email": "mahadbajwa97@gmail.com",
                     "Name": fullName
                 }],
                 "Subject": "Please verify",
