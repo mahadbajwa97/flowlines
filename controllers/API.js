@@ -354,6 +354,28 @@ exports.sendFollowRequest = function (req, res, Request) {
         httpMsgs.show500(req, res, exc);
     }
 }
+exports.acceptFollowRequest = function (req, res, Request) {
+    try {
+        if (!Request) throw new error("Input not valid");
+
+        if (Request) {
+            db.executeSql("exec acceptFollowRequest @userID=" + Request.userID + ", @followID =" + Request.friendID + "", function (data, err) {
+                if (err) {
+                    httpMsgs.show500(req, res, err);
+                }
+                else {
+                    console.log(data);
+                    httpMsgs.sendJson(req, res, data);
+                }
+            });
+        }
+    }
+    catch (exc) {
+        httpMsgs.show500(req, res, exc);
+    }
+}
+
+
 
 exports.searchBar = function (req, res, letters) {
     db.executeSql("exec searchBar @userLetters='" + letters + "'", function (data, err) {
