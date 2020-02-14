@@ -21,7 +21,7 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Name": fullName
                 }],
                 "Subject": "Please verify",
-                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='http://localhost:3000/verify/'" + code + "'>Click me</a>"
+                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='https://flowlines-server.herokuapp.com/verify/'" + code + "'>Click me</a>"
             }]
         })
     request
