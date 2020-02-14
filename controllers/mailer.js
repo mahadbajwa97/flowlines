@@ -4,26 +4,34 @@ var Mailgun = require('mailgun-js');
 var sendgrid = require('sendgrid')('azure_3d95a80d87700eb5234ed1af36865832@azure.com', 'QWErtyuiop46');
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
+const mailjet = require('node-mailjet')
+    .connect('419ddf082de99b9a566f2586d398680d', '7fab9a64b6174a11c81ee44773d6dc4b');
+
 exports.Mail_1 = function (to_, fullName, code) {
 
-
-
-
-    const msg = {
-        to: to_,
-        from: 'verify@flowlines.com',
-        subject: 'Welcome to Flowlines',
-        html: 'Dear ' + fullName + ',<br/> Please Verify your email to enjoy using the app: <br/> <a href="http://localhost:3000/verify/' + code + '">Click me</a>',
-    };
-    sgMail.send(msg, function (err, result) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            console.log(result + 2);
-        }
-    }
-    );
+    const request = mailjet
+        .post("send", { 'version': 'v3.1' })
+        .request({
+            "Messages": [{
+                "From": {
+                    "Email": "verify@flowlines.com",
+                    "Name": "Team Flowlines"
+                },
+                "To": [{
+                    "Email": to_,
+                    "Name": fullName
+                }],
+                "Subject": "Please verify",
+                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='http://localhost:3000/verify/'" + code + "'>Click me</a>"
+            }]
+        })
+    request
+        .then((result) => {
+            console.log(result.body)
+        })
+        .catch((err) => {
+            console.log(err.statusCode)
+        })
 }
 var transporter = nodemailer.createTransport({
     service: 'gmail',
