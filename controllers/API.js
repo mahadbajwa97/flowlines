@@ -82,8 +82,8 @@ exports.Login = function (req, res, User) {
                     console.log(data);
                     httpMsgs.sendJson(req, res, data);
                 }
-                else if (!data.isValidated) {
-                    res.send(JSON.parse(data));
+                else if (!data[0].isValidated) {
+                    res.send(data.isValidated);
                     console.log("The email is not verified")
                 }
 
