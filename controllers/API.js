@@ -87,7 +87,7 @@ exports.Login = function (req, res, User) {
                     });
                 }
                 else if (!data[0].isValidated) {
-                    res.send(data[0].isValidated);
+                    res.send(data[0]);
                     console.log("The email is not verified")
                 }
 
