@@ -56,6 +56,6 @@ exports.Mail = function (fullName, email, code) {
         } else {
             console.log('Email sent: ' + info.response);
 
-        }
+        } 
     });
 }
