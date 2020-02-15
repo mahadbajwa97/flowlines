@@ -39,7 +39,7 @@ exports.Registers = function (req, res, User) {
                 else {
                     console.log(data);
                     res.json({
-                        "request": "Its working"
+                        "success": 1
                     });
                     //Create New Email
                     //mailer.Mail(User.fullName, User.emailAddress, SecretToken);
@@ -74,7 +74,7 @@ exports.Login = function (req, res, User) {
                         else if(data[0].isValidated) {
                             console.log(data);
                             console.log("The fuckin email is verified");
-                            res.send(data);
+                            res.send(data[0]);
                         }
                         
                         else if (!data[0].isValidated) {
@@ -83,7 +83,7 @@ exports.Login = function (req, res, User) {
                             res.json(data[0]);
                         }
                         else{
-                            console.log("data not present");
+                            res.json({"success":0})
                         }
                         
                     });
@@ -116,7 +116,7 @@ exports.verify = function (req, res, token) {
                 else {
                     console.log("Email Verified");
                     res.json({ "status": "verified" });
-                    res.send("You are verified");
+                 
                 }
             });
         }
@@ -154,10 +154,12 @@ exports.postFlow = function (req, res, Flow) {
         if (!Flow) throw new error("Input not valid");
         console.log(Flow);
 
-        if (Flow) {
+        if (Flow) 
+        {
             db.executeSql("exec postFlow @desc ='" + Flow.desc + "', @anchorID ='" + Flow.anchorID + "', @videoPath ='" + Flow.videoPATH + "', @lat ='" + Flow.lat + "', @lng='" + Flow.lng + "', @flowType=" + Flow.flowType + ", @userID =" + Flow.userID, function (data, err) {
 
                 if (err) {
+       
                     httpMsgs.show500(req, res, err);
                 }
                 else {
@@ -172,7 +174,7 @@ exports.postFlow = function (req, res, Flow) {
                             }
                         });
                     }
-                    res.json({"status":"posted your flow"})
+                    res.json({"success":1})
                 }
             });
         }
