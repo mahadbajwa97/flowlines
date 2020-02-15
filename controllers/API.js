@@ -5,14 +5,14 @@ var randomstring = require("randomstring");
 const mailer = require("./mailer");
 const crypto = require('crypto');
 exports.getFlows = function (req, res) {
-    db.executeSql("SELECT * from [dbo].[Flows]", function (data, err) {
+    db.executeSql("exec profile_view @userID=11", function (data, err) {
 
         if (err) {
             httpMsgs.show500(req, res, err);
         }
         else {
             console.log(data);
-            httpMsgs.sendJson(req, res, data);
+            res.json(data);
         }
 
 
