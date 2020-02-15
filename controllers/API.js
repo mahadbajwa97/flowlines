@@ -59,12 +59,12 @@ exports.Login = function (req, res, User) {
 
         if (User) {
             db.executeSql("exec searchUser @username='" + User.userName + "'", function (data, err) {
-                var data1=JSON.parse(data);
+                
                 if (err) {
                     console.log("data");
                     httpMsgs.show500(req, res, err);
                 }
-                else if (data1.isValidated) {
+                else if (data.isValidated) {
                     let hash = crypto.createHash('md5').update(User.password).digest("hex")
 
                     db.executeSql("exec Login @userName='" + User.userName + "', @emailAddress ='', @password ='" + hash + "'", function (data, err) {
@@ -81,8 +81,8 @@ exports.Login = function (req, res, User) {
                     console.log(data);
                     httpMsgs.sendJson(req, res, data);
                 }
-                else if (!data1.isValidated) {
-                    res.json({ "status": data });
+                else if (data.isValidated) {
+                    res.json({ "status": data.isValidated });
                     console.log("The email is not verified")
                 }
 
