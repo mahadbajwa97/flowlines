@@ -20,7 +20,7 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Email": to_,
                     "Name": fullName
                 }],
-                "Subject": "Please verify",
+                "Subject" : "Please verify",
                 "HTMLPart": "<h3> Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href=\"https://flowlines.azurewebsites.net/verify/" + 123+"\">"+code+"</a></h3>"
             }]
         })
