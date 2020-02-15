@@ -63,7 +63,7 @@ exports.Login = function (req, res, User) {
                  
                     let hash = crypto.createHash('md5').update(User.password).digest("hex");
                     
-                    db.executeSql("select * from Users Where userName='" + User.userName, function (data, err) {
+                    db.executeSql("select * from Users Where userName='" + User.userName+"'", function (data, err) {
                         
                         if (err) 
                         {
