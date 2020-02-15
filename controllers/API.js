@@ -58,14 +58,8 @@ exports.Login = function (req, res, User) {
         if (!User) throw new error("Input not valid");
 
         if (User) {
-            db.executeSql("exec searchUser @username='" + User.userName + "'", function (data, err) {
+            
                 
-                
-                if (err) {
-                    console.log(data);
-                    httpMsgs.show500(req, res, err);
-                }
-                else if (data[0].isValidated) {
                     
                     let hash = crypto.createHash('md5').update(User.password).digest("hex");
                     
@@ -77,22 +71,21 @@ exports.Login = function (req, res, User) {
                             res.send(hash);
                             httpMsgs.show500(req, res, err);
                         }
-                        else if(data) {
+                        else if(data.isValidated) {
                             console.log(logdata);
                             httpMsgs.sendJson(req, res, logdata);
                         }
-                        else{
-                            res.send('Figure sth out');
-                        }
+                        
+                        else if (!data.isValidated) {
+                           res.send(data);
+                            console.log("The email is not verified")
+                }
                     });
                 }
-                else if (!data[0].isValidated) {
-                    res.send(data[0]);
-                    console.log("The email is not verified")
-                }
+                
 
-            });
-        }
+           
+        
     }
     catch (exc) {
         httpMsgs.show500(req, res, exc);
