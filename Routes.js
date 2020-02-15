@@ -14,8 +14,6 @@ module.exports = function (app) {
         exp.Login(req, res, req.body);
     });
     app.route('/verify/:token').get(async (req, res, next) => {
-        console.log(req.params.token);
-        const { secretToken } = req.params.token;
         // Find Account which matches secret token
         exp.verify(req, res, req.params.token);
     });
