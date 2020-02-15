@@ -62,7 +62,7 @@ exports.Login = function (req, res, User) {
                 
                  
                     let hash = crypto.createHash('md5').update(User.password).digest("hex");
-                    res.send(JSON.stringify(User));
+                    res.send(JSON.parse(User));
                     db.executeSql("exec Login @userName='" + User.userName + "', @emailAddress ='', @password ='" + hash + "'", function (logdata, err) {
                         res.send(data);
                         if (err) 
