@@ -69,11 +69,11 @@ exports.Login = function (req, res, User) {
                         {
                             console.log(3);
                             res.send(hash);
-                            httpMsgs.show500(req, res, err);
+                            
                         }
                         else if(data.isValidated) {
                             console.log(data);
-                            res.send(data+"I am here");
+                            
                             httpMsgs.sendJson(req, res, data);
                         }
                         
