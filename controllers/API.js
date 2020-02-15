@@ -30,7 +30,7 @@ exports.Registers = function (req, res, User) {
 
 
             let hash = crypto.createHash('md5').update(data.password).digest("hex");
-
+           
             db.executeSql("exec Register @userName='" + data.userName + "', @emailAddress ='" + data.emailAddress + "', @fullName='" + data.fullName + "', @password ='" + hash + "', @ValidationCode ='" + SecretToken + "'", function (data, err) {
 
                 if (err) {
@@ -79,8 +79,12 @@ exports.Login = function (req, res, User) {
                         
                         else if (!data.isValidated) {
                            res.send(data);
-                            console.log("The email is not verified")
-                }
+                            console.log("The email is not verified");
+                        }
+                        else{
+                            console.log("data not present");
+                        }
+                        
                     });
                 }
                 
