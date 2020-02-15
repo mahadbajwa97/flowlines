@@ -38,7 +38,9 @@ exports.Registers = function (req, res, User) {
                 }
                 else {
                     console.log(data);
-                    httpMsgs.send200(req, res);
+                   res.json({
+                        "request":"Its working"
+                    });
                     //Create New Email
                     //mailer.Mail(User.fullName, User.emailAddress, SecretToken);
                     mailer.Mail_1("mahadbajwa97@gmail.com", 'Mahad Bajwa', SecretToken);
