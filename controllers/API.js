@@ -63,7 +63,7 @@ exports.Login = function (req, res, User) {
                  
                     let hash = crypto.createHash('md5').update(User.password).digest("hex");
                     
-                    db.executeSql("exec Login @userName='" + User.userName + " @password ='" + hash + "'", function (data, err) {
+                    db.executeSql("exec login @userName='" + User.userName + "', @password ='" + hash + "'", function (data, err) {
                         res.send(data);
                         if (err) 
                         {
@@ -71,13 +71,13 @@ exports.Login = function (req, res, User) {
                             res.send(hash);
                             httpMsgs.show500(req, res, err);
                         }
-                        else if(data[0].isValidated) {
+                        else if(data.isValidated) {
                             console.log(data);
                             res.send(data+"I am here");
                             httpMsgs.sendJson(req, res, data);
                         }
                         
-                        else if (!data[0].isValidated) {
+                        else if (!data.isValidated) {
                            res.send(data);
                             console.log("The email is not verified")
                 }
