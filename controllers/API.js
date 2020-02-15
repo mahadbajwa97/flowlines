@@ -71,12 +71,12 @@ exports.Login = function (req, res, User) {
                             res.send(hash);
                             httpMsgs.show500(req, res, err);
                         }
-                        else if(data.isValidated) {
+                        else if(data[0].isValidated) {
                             console.log(logdata);
                             httpMsgs.sendJson(req, res, logdata);
                         }
                         
-                        else if (!data.isValidated) {
+                        else if (!data[0].isValidated) {
                            res.send(data);
                             console.log("The email is not verified")
                 }
