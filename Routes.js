@@ -64,5 +64,8 @@ module.exports = function (app) {
     app.route('/searchBar/:key').get(function (req, res) {
         exp.searchBar(req, res, req.params.key);
     });
+     app.route('/NewsFeed/:userID/:offset').get(function (req, res) {
+        exp.searchBar(req, res, req.params.UserID, req.params.offset);
+    });
 
 };
