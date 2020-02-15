@@ -77,9 +77,12 @@ exports.Login = function (req, res, User) {
                             res.send(hash);
                             httpMsgs.show500(req, res, err);
                         }
-                        else {
+                        else if(data) {
                             console.log(data);
                             httpMsgs.sendJson(req, res, data);
+                        }
+                        else{
+                            res.send('Figure sth out');
                         }
                     });
                     console.log(data);
