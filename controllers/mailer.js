@@ -17,16 +17,16 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Name": "Team Flowlines"
                 },
                 "To": [{
-                    "Email": "mahadbajwa97@gmail.com",
+                    "Email": to_,
                     "Name": fullName
                 }],
                 "Subject": "Please verify",
-                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='https://flowlines-server.herokuapp.com/verify/'" + code + "'>Click me</a>"
+                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='https://flowlines.azurewebsites.net/verify/'" + code + "'>Click me</a>"
             }]
         })
     request
         .then((result) => {
-            console.log("1"+result.body)
+            console.log("1" + result.body)
         })
         .catch((err) => {
             console.log(err.statusCode)

@@ -38,12 +38,12 @@ exports.Registers = function (req, res, User) {
                 }
                 else {
                     console.log(data);
-                   res.json({
-                        "request":"Its working"
+                    res.json({
+                        "request": "Its working"
                     });
                     //Create New Email
                     //mailer.Mail(User.fullName, User.emailAddress, SecretToken);
-                    mailer.Mail_1("mahadbajwa97@gmail.com", 'Mahad Bajwa', SecretToken);
+                    mailer.Mail_1(User.emailAddress, User.fullName, SecretToken);
                 }
             });
         }
@@ -82,7 +82,7 @@ exports.Login = function (req, res, User) {
                     httpMsgs.sendJson(req, res, data);
                 }
                 else if (!data.isValidated) {
-
+                    res.json({ "status": "not verified" });
                     console.log("The email is not verified")
                 }
 
@@ -111,6 +111,8 @@ exports.verify = function (req, res, token) {
                 }
                 else {
                     console.log("Email Verified");
+                    res.json({ "status": "verified" });
+                    res.send("You are verified");
                 }
             });
         }
