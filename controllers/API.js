@@ -69,7 +69,7 @@ exports.Login = function (req, res, User) {
                     
                     let hash = crypto.createHash('md5').update(User.password).digest("hex");
                     
-                    db.executeSql("exec Login @userName='" + User.userName + "', @emailAddress ='', @password ='" + hash + "'", function (data, err) {
+                    db.executeSql("exec Login @userName='" + User.userName + "', @emailAddress ='', @password ='" + hash + "'", function (logdata, err) {
 
                         if (err) 
                         {
@@ -78,15 +78,13 @@ exports.Login = function (req, res, User) {
                             httpMsgs.show500(req, res, err);
                         }
                         else if(data) {
-                            console.log(data);
-                            httpMsgs.sendJson(req, res, data);
+                            console.log(logdata);
+                            httpMsgs.sendJson(req, res, logdata);
                         }
                         else{
                             res.send('Figure sth out');
                         }
                     });
-                    console.log(data);
-                    httpMsgs.sendJson(req, res, data);
                 }
                 else if (!data[0].isValidated) {
                     res.send(data[0].isValidated);
