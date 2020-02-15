@@ -21,7 +21,7 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Name": fullName
                 }],
                 "Subject": "Please verify",
-                "HTMLPart": "html: 'Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='https://flowlines.azurewebsites.net/verify/'" + code + "'>Click me</a>"
+                "HTMLPart": " Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href='https://flowlines.azurewebsites.net/verify/" + code+">Click me</a>"
             }]
         })
     request
