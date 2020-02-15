@@ -399,3 +399,16 @@ exports.searchBar = function (req, res, letters) {
         }
     });
 }
+
+exports.searchBar = function (req, res, userID, offset) {
+    db.executeSql("exec NewsFeed @userID=" + userID+ ", @offset_rows="+offset, function (data, err) {
+
+        if (err) {
+            httpMsgs.show500(req, res, err);
+        }
+        else {
+            console.log(data);
+            res.json(data);
+        }
+    });
+}
