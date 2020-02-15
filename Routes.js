@@ -3,8 +3,8 @@ module.exports = function (app) {
     var exp = require("./controllers/API");
 
     // todoList Routes
-    app.route('/flows').get(function (req, res) {
-        exp.getFlows(req, res);
+    app.route('/profileView/:id').get(function (req, res) {
+        exp.getFlows(req, res, req.params.id);
     });
     app.route('/register').post(function (req, res) {
         exp.Registers(req, res, req.body);
