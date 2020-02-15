@@ -74,7 +74,7 @@ exports.Login = function (req, res, User) {
                         else if(data[0].isValidated) {
                             console.log(data);
                             console.log("The fuckin email is verified");
-                            httpMsgs.sendJson(req, res, data);
+                            res.json(data);
                         }
                         
                         else if (!data[0].isValidated) {
