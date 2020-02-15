@@ -172,7 +172,7 @@ exports.postFlow = function (req, res, Flow) {
                             }
                         });
                     }
-                    httpMsgs.sendJson(req, res, data);
+                    res.json({"status":"posted your flow"})
                 }
             });
         }
