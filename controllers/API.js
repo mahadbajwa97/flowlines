@@ -61,7 +61,7 @@ exports.Login = function (req, res, User) {
             db.executeSql("exec searchUser @username='" + User.userName + "'", function (data, err) {
                 
                 if (err) {
-                    console.log("data");
+                    console.log(data);
                     httpMsgs.show500(req, res, err);
                 }
                 else if (data.isValidated) {
@@ -82,7 +82,7 @@ exports.Login = function (req, res, User) {
                     httpMsgs.sendJson(req, res, data);
                 }
                 else if (data.isValidated) {
-                    res.json({ "status": data.isValidated });
+                    res.json({ "status": data});
                     console.log("The email is not verified")
                 }
 
