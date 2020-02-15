@@ -9,7 +9,7 @@ module.exports = function (app) {
     app.route('/register').post(function (req, res) {
         exp.Registers(req, res, req.body);
     });
-    app.route('/login').get(function (req, res) {
+    app.route('/login').post(function (req, res) {
 
         exp.Login(req, res, req.body);
     });
