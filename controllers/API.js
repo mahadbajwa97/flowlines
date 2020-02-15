@@ -59,7 +59,7 @@ exports.Login = function (req, res, User) {
 
         if (User) {
             db.executeSql("exec searchUser @username='" + User.userName + "'", function (data, err) {
-                res.json()
+               
                 if (err) {
                     console.log("data");
                     httpMsgs.show500(req, res, err);
