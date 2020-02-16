@@ -415,3 +415,23 @@ exports.NewsFeed = function (req, res, userID, offset) {
         }
     });
 }
+exports.editProfile = function (req, res, userID, User) {
+    try {
+        if (!User) throw new error("Input not valid");
+
+        if (User) {
+            db.executeSql("exec UpdateUserProfile @userID=" + userID + ", @bio ='" + User.bio + "', @userName='"+User.userName+"', @photoURL='"+User.photoURL+"'", function (data, err) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log(data);
+                    res.json({"success":1});
+                }
+            });
+        }
+    }
+    catch (exc) {
+        httpMsgs.show500(req, res, exc);
+    }
+}
