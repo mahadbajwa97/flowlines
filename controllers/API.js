@@ -420,7 +420,7 @@ exports.editProfile = function (req, res, userID, User) {
         if (!User) throw new error("Input not valid");
 
         if (User) {
-            db.executeSql("exec UpdateUserProfile @userID=" + userID + ", @bio ='" + User.bio + "', @userName='"+User.userName+"', @photoURL='"+User.photoURL+"'", function (data, err) {
+            db.executeSql("exec UpdateUserProfile @userID=" + userID + ", @bio ='" + User.bio + "', @userName='"+User.userName+"', @photoURL='"+User.photoURL+"',@fullName='"+User.fullName+"'", function (data, err) {
                 if (err) {
                     console.log(err);
                 }
