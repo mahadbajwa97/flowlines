@@ -4,9 +4,8 @@ var encryption = require("./encryption");
 var randomstring = require("randomstring");
 const mailer = require("./mailer");
 const crypto = require('crypto');
-exports.getFlows = function (req, res) {
-    db.executeSql("exec profile_view @userID=11", function (data, err) {
-
+exports.getProfileView = function (req, res, ID) {
+    db.executeSql("exec profile_view @userID="+ID, function (data, err) {
         if (err) {
             httpMsgs.show500(req, res, err);
         }
