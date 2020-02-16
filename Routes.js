@@ -67,5 +67,8 @@ module.exports = function (app) {
      app.route('/NewsFeed/:userID/:offset').get(function (req, res) {
         exp.NewsFeed(req, res, req.params.userID, req.params.offset);
     });
+     app.route('/EditProfile/:userID').put(function (req, res) {
+        exp.editProfile(req, res, req.params.userID, req.body);
+    });
 
 };
