@@ -162,14 +162,14 @@ exports.postFlow = function (req, res, Flow) {
 
                 if (err) {
        
-                    httpMsgs.show500(req, res, err);
+                    res.json({"error":err});
                 }
                 else {
                     if (Flow.flowType === 2 || Flow.flowType === 3) {
                         db.executeSql("exec addDrawing @flowID=" + data[0].ID + ",@strokes='"+Flow.strokes+"'", function (data, err) {
 
                             if (err) {
-                                httpMsgs.show500(req, res, err);
+                                res.json({"Error":err});
                             }
                             else {
                                 console.log("Done");
@@ -377,7 +377,7 @@ exports.acceptFollowRequest = function (req, res, Request) {
                 }
                 else {
                     console.log(data);
-                    httpMsgs.sendJson(req, res, data);
+                    res.json({"success":1});
                 }
             });
         }
