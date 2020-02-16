@@ -73,7 +73,7 @@ exports.Login = function (req, res, User) {
                         }
                         else if(data[0].isValidated) {
                             console.log(data);
-                            console.log("The fuckin email is verified");
+                            console.log("The email is verified");
                             res.send(data[0]);
                         }
                         
