@@ -7,7 +7,7 @@ const crypto = require('crypto');
 exports.getProfileView = function (req, res, ID) {
     db.executeSql("exec profile_view @userID="+ID, function (data, err) {
         if (err) {
-            httpMsgs.show500(req, res, err);
+            res.json(err);
         }
         else {
             console.log(data);
@@ -166,7 +166,7 @@ exports.postFlow = function (req, res, Flow) {
                 }
                 else {
                     if (Flow.flowType === 2 || Flow.flowType === 3) {
-                        db.executeSql("exec addDrawing @flowID=" + data[0].ID + ",@strokes='jasbdjaswdbh6232'", function (data, err) {
+                        db.executeSql("exec addDrawing @flowID=" + data[0].ID + ",@strokes='"+Flow.strokes+"'", function (data, err) {
 
                             if (err) {
                                 httpMsgs.show500(req, res, err);
