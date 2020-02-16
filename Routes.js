@@ -65,7 +65,7 @@ module.exports = function (app) {
         exp.searchBar(req, res, req.params.key);
     });
      app.route('/NewsFeed/:userID/:offset').get(function (req, res) {
-        exp.searchBar(req, res, req.params.userID, req.params.offset);
+        exp.NewsFeed(req, res, req.params.userID, req.params.offset);
     });
 
 };
