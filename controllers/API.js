@@ -82,16 +82,15 @@ exports.Login = function (req, res, User) {
                             console.log("The email is not verified");
                             res.json(data[0]);
                         }
+                        
+                      }
                         else{
                             res.json({"success":0})
                         }
-                      }
                         
                     });
                 }
-        else{
-            res.json("success": 0);
-        }
+        
                 
 
            
