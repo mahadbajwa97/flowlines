@@ -8,6 +8,9 @@ module.exports = function (app) {
      app.route('/GetUserFeed/:id').get(function (req, res) {
         exp.getUserfeed(req, res, req.params.id);
     });
+    app.route('/getFollowRequests/:id').get(function (req, res) {
+        exp.getFollowRequests(req, res, req.params.id);
+    });
     app.route('/register').post(function (req, res) {
         exp.Registers(req, res, req.body);
     });
