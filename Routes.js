@@ -55,7 +55,7 @@ module.exports = function (app) {
     app.route('/getFollowers/:userID').get(function (req, res) {
         exp.getFollowers(req, res, req.params.userID);
     });
-    app.route('/sendFollowRequest').get(function (req, res) {
+    app.route('/sendFollowRequest').post(function (req, res) {
         exp.sendFollowRequest(req, res, req.body);
     });
     app.route('/sendFollowRequest').get(function (req, res) {
