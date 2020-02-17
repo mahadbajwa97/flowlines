@@ -4,8 +4,9 @@ var encryption = require("./encryption");
 var randomstring = require("randomstring");
 const mailer = require("./mailer");
 const crypto = require('crypto');
-exports.getProfileView = function (req, res, ID) {
-    db.executeSql("exec Profile_view @userID="+ID, function (data, err) {
+exports.getProfileView = function (req, res, ID, currentID) {
+    db.executeSql("exec Profile_view @userID="+ID+",currentUserID="+currentID, function (data, err) 
+     {
         if (err) {
             console.log(err);
         }
@@ -13,8 +14,6 @@ exports.getProfileView = function (req, res, ID) {
             console.log(data);
             res.json(data);
         }
-
-
     });
 }
 exports.getUserfeed = function (req, res, ID) {
