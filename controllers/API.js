@@ -7,7 +7,7 @@ const crypto = require('crypto');
 exports.getProfileView = function (req, res, ID) {
     db.executeSql("exec profile_view @userID="+ID, function (data, err) {
         if (err) {
-            res.json(err);
+            console.log(err);
         }
         else {
             console.log(data);
