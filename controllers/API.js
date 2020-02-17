@@ -30,6 +30,7 @@ exports.getProfileView = function (req, res, ID, currentID) {
                 console.log(data);
                 res.json(data);
             }
+       
         }
     });
 }
