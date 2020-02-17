@@ -412,7 +412,7 @@ exports.acceptFollowRequest = function (req, res, Request) {
         if (Request) {
             db.executeSql("exec acceptFollowRequest @userID=" + Request.userID + ", @followID =" + Request.followID + "", function (data, err) {
                 if (err) {
-                    httpMsgs.show500(req, res, err);
+                    res.json({"success":0});
                 }
                 else {
                     console.log(data);
