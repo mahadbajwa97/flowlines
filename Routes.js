@@ -4,7 +4,7 @@ module.exports = function (app) {
     var exp = require("./controllers/API");
     app.route('/privacyPolicy').get(function (req, res) {
         
-        res.sendFile('privacy_policy.html',{root : __dirname + '/'});
+        res.sendFile('privacy_policy.html', { root: '.' });
     });
     app.route('/profileView/:currentID/:id').get(function (req, res) {
         exp.getProfileView(req, res, req.params.id, req.params.currentID);
