@@ -4,7 +4,7 @@ module.exports = function (app) {
 
     // todoList Routes
     app.route('/profileView/:id').get(function (req, res) {
-        exp.getFlows(req, res, req.params.id);
+        exp.getProfileView(req, res, req.params.id);
     });
     app.route('/register').post(function (req, res) {
         exp.Registers(req, res, req.body);
