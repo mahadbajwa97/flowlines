@@ -2,10 +2,15 @@
 module.exports = function (app) {
    
     var exp = require("./controllers/API");
-    app.route('/privacyPolicy').get(function (req, res) {
-        
+    //Rendering Rountes
+    app.route('/privacyPolicy').get(function (req, res) {     
         res.sendFile('privacy_policy.html', { root: '.' });
     });
+   
+    app.route('/AboutUs').get(function (req, res) {
+        res.render('https://github.com/NBAMIR/Syrup.Website/blob/master/public/index.html');
+    });
+    //APIs
     app.route('/profileView/:currentID/:id').get(function (req, res) {
         exp.getProfileView(req, res, req.params.id, req.params.currentID);
     });
