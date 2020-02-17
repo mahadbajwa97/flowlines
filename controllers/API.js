@@ -23,7 +23,7 @@ exports.getUserfeed = function (req, res, ID) {
             console.log(err);
         }
         else {
-            console.log(data);
+           
             res.json(data);
         }
 
