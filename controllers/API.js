@@ -46,6 +46,16 @@ exports.getUserfeed = function (req, res, ID) {
 
     });
 }
+exports.getFollowRequests = function (req, res, ID) {
+    db.executeSql("exec getFollowRequests @userID="+ID, function (data, err) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(data);
+        }
+    });
+}
 exports.Registers = function (req, res, User) {
     try {
 
