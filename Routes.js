@@ -59,9 +59,11 @@ module.exports = function (app) {
         exp.sendFollowRequest(req, res, req.body);
     });
     app.route('/sendFollowRequest').get(function (req, res) {
+        console.log(req.body);
         exp.sendFollowRequest(req, res, req.body);
     });
     app.route('/acceptFollowRequest').get(function (req, res) {
+        
         exp.acceptFollowRequest(req, res, req.body);
     });
     app.route('/searchBar/:key').get(function (req, res) {
