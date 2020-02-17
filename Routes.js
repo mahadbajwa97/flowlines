@@ -1,11 +1,10 @@
 'use strict';
 module.exports = function (app) {
-    app.set('views', __dirname + './');
-    app.engine('html', require('ejs').renderFile);
-    app.set('view engine', 'html');  
+   
     var exp = require("./controllers/API");
     app.route('/privacyPolicy').get(function (req, res) {
-        res.render("privacy_policy");
+        
+        res.sendFile('./privacy_policy');
     });
     app.route('/profileView/:currentID/:id').get(function (req, res) {
         exp.getProfileView(req, res, req.params.id, req.params.currentID);
