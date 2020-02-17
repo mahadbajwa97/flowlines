@@ -410,7 +410,7 @@ exports.acceptFollowRequest = function (req, res, Request) {
         if (!Request) throw new error("Input not valid");
 
         if (Request) {
-            db.executeSql("exec acceptFollowRequest @userID=" + Request.userID + ", @followID =" + Request.friendID + "", function (data, err) {
+            db.executeSql("exec acceptFollowRequest @userID=" + Request.userID + ", @followID =" + Request.followID + "", function (data, err) {
                 if (err) {
                     httpMsgs.show500(req, res, err);
                 }
