@@ -14,19 +14,19 @@ exports.getProfileView = function (req, res, ID, currentID) {
         {
             if(data[4].following===0 && data[4].followRequest===0)
             {
-                data[4]={"status":"no relation"};
+                data[4]={"status":"No Relation"};
                 console.log(data);
                 res.json(data);
             }
             else if(data[4].following===1 && data[4].followRequest===0)
             {
-                data[4]={"status":"follower"};
+                data[4]={"status":"Follower"};
                 console.log(data);
                 res.json(data);
             }
             else if(data[4].following===0 && data[4].followRequest===1)
             {
-                data[4]={"status":"following"};
+                data[4]={"status":"Follow Request"};
                 console.log(data);
                 res.json(data);
             }
