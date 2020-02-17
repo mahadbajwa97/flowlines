@@ -60,11 +60,7 @@ module.exports = function (app) {
     app.route('/sendFollowRequest').post(function (req, res) {
         exp.sendFollowRequest(req, res, req.body);
     });
-    app.route('/sendFollowRequest').get(function (req, res) {
-        console.log(req.body);
-        exp.sendFollowRequest(req, res, req.body);
-    });
-    app.route('/acceptFollowRequest').get(function (req, res) {
+    app.route('/acceptFollowRequest').post(function (req, res) {
         
         exp.acceptFollowRequest(req, res, req.body);
     });
