@@ -6,6 +6,9 @@ module.exports = function (app) {
     app.route('/profileView/:id').get(function (req, res) {
         exp.getProfileView(req, res, req.params.id);
     });
+     app.route('/GetUserFeed/:id').get(function (req, res) {
+        exp.getUserfeed(req, res, req.params.id);
+    });
     app.route('/register').post(function (req, res) {
         exp.Registers(req, res, req.body);
     });
