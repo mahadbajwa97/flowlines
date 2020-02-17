@@ -20,8 +20,8 @@ exports.Mail_1 = function (to_, fullName, code) {
                     "Email": to_,
                     "Name": fullName
                 }],
-                "Subject" : "Please verify",
-                "HTMLPart": "<h3> Dear " + fullName + ",<br/> Please Verify your email to enjoy using the app: <br/> <a href=\"https://flowlines.azurewebsites.net/verify/" + code+"\">"+code+"</a></h3>"
+                "Subject" : "[Welcome to Flowlines] - Email Verification",
+                "HTMLPart": "<h3> Dear " + fullName + ",<br/> We are glad to welcome you on board our platform. We hope you enjoy your time in this new realm of Social Media.<br/> Please verify your email: <a href=\"https://flowlines.azurewebsites.net/verify/" + code+"\">Click Here to verify</a><br/>Now, Log in and have fun<br/>Kind Regards,<br/>Team Flowlines</h3>"
             }]
         })
     request
