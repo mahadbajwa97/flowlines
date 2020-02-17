@@ -5,7 +5,19 @@ var randomstring = require("randomstring");
 const mailer = require("./mailer");
 const crypto = require('crypto');
 exports.getProfileView = function (req, res, ID) {
-    db.executeSql("exec profile_view @userID="+ID, function (data, err) {
+    db.executeSql("exec UserFeed @userID="+ID, function (data, err) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(data);
+        }
+
+
+    });
+}
+exports.getUserfeed = function (req, res, ID) {
+    db.executeSql("exec UserFeed @userID="+ID, function (data, err) {
         if (err) {
             console.log(err);
         }
