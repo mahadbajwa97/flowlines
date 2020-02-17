@@ -73,7 +73,7 @@ exports.Registers = function (req, res, User) {
             db.executeSql("exec Register @userName='" + data.userName + "', @emailAddress ='" + data.emailAddress + "', @fullName='" + data.fullName + "', @password ='" + hash + "', @ValidationCode ='" + SecretToken + "'", function (data, err) {
                 console.log(data);
                 if (err) {
-                    httpMsgs.show500(req, res, err);
+                    res.json({"success": 0});
                 }
                 else {
                     console.log(data);
@@ -106,8 +106,7 @@ exports.Login = function (req, res, User) {
                       if(data){  
                         if (err) 
                         {
-                            console.log(3);
-                            res.send(hash);
+                            res.json({"success": 0});
                             
                         }
                         else if(data[0].isValidated) {
