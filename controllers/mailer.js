@@ -13,7 +13,7 @@ exports.Mail_1 = function (to_, fullName, code) {
         .request({
             "Messages": [{
                 "From": {
-                    "Email": "mahadbajwa97@gmail.com",
+                    "Email": "flowlinesapp@gmail.com",
                     "Name": "Team Flowlines"
                 },
                 "To": [{
