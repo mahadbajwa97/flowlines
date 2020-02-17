@@ -364,13 +364,13 @@ exports.sendFollowRequest = function (req, res, Request) {
         if (!Request) throw new error("Input not valid");
 
         if (Request) {
-            db.executeSql("exec sendFollowRequest @userID=" + Request.userID + ", @followID =" + Request.friendID + "", function (data, err) {
+            db.executeSql("exec sendFollowRequest @userID=" + Request.userID + ", @followID =" + Request.followID + "", function (data, err) {
                 if (err) {
-                    httpMsgs.show500(req, res, err);
+                    res.json({"success":0});
                 }
                 else {
                     console.log(data);
-                    httpMsgs.sendJson(req, res, data);
+                    res.json({"success":1});
                 }
             });
         }
