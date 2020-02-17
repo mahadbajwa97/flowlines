@@ -4,7 +4,7 @@ module.exports = function (app) {
 
     // todoList Routes
     app.route('/profileView/:currentID/:id').get(function (req, res) {
-        exp.getProfileView(req, res, req.params.id);
+        exp.getProfileView(req, res, req.params.id, req.params.currentID);
     });
      app.route('/GetUserFeed/:id').get(function (req, res) {
         exp.getUserfeed(req, res, req.params.id);
