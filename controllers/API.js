@@ -2,11 +2,19 @@ var db = require("../core/db");
 var httpMsgs = require("../core/httpMsgs");
 var encryption = require("./encryption");
 var randomstring = require("randomstring");
+let appInsights = require("applicationinsights");
+let client = appInsights.defaultClient;
 const mailer = require("./mailer");
 const crypto = require('crypto');
 exports.getProfileView = function (req, res, ID, currentID) {
     db.executeSql("exec Profile_view @userID="+ID+",@currentUserID="+currentID+",@followRequest=0, @following=0", function (data, err) 
     {
+        var success = false;
+        let startTime = Date.now();
+        // Execute dependency call here...
+        
+        
+
         if (err) {
             console.log(err);
         }
@@ -33,6 +41,10 @@ exports.getProfileView = function (req, res, ID, currentID) {
        
         }
     });
+    let duration = Date.now() - startTime;
+    success = true;
+     client.trackDependency({dependencyTypeName: "mySql", name: "Profile Query", duration: duration, success: success});
+
 }
 exports.getUserfeed = function (req, res, ID) {
     db.executeSql("exec UserFeed @userID="+ID, function (data, err) {
