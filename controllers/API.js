@@ -9,17 +9,13 @@ const crypto = require('crypto');
 exports.getProfileView = function (req, res, ID, currentID) {
     db.executeSql("exec Profile_view @userID="+ID+",@currentUserID="+currentID+",@followRequest=0, @following=0", function (data, err) 
     {
-        var success = false;
-        let startTime = Date.now();
-        // Execute dependency call here...
-        
-        
-
         if (err) {
             console.log(err);
         }
         else 
         {
+            appInsights.defaultClient.trackNodeHttpRequest({request: req, response: res});
+
             if(data[4].following===0 && data[4].followRequest===0)
             {
                 data[4]={"status":"No Relation"};
@@ -37,13 +33,10 @@ exports.getProfileView = function (req, res, ID, currentID) {
                 data[4]={"status":"Follow Request"};
                 console.log(data);
                 res.json(data);
-            }
-       
+            }  
         }
     });
-    let duration = Date.now() - startTime;
-    success = true;
-     client.trackDependency({dependencyTypeName: "mySql", name: "Profile Query", duration: duration, success: success});
+    
 
 }
 exports.getUserfeed = function (req, res, ID) {
