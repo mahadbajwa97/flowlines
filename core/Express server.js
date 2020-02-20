@@ -1,3 +1,6 @@
+const appInsights = require("applicationinsights");
+appInsights.setup("7e8fea7d-233d-46a3-ad96-d700c5a851ec");
+appInsights.start();
 const express = require('express'),
     app = express(),
     bodyParser = require('body-parser');
