@@ -7,6 +7,10 @@ module.exports = function (app) {
         res.sendFile('privacy_policy.html', { root: '.' });
     });
    
+   app.route('/Home').get(function (req, res) {     
+        res.sendFile('index.html', { root: './landing/' });
+    });
+   
     app.route('/AboutUs').get(function (req, res) {
         res.render('https://github.com/NBAMIR/Syrup.Website/blob/master/public/index.html');
     });
