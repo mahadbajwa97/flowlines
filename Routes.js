@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (app) {
-    app.use(express.static('./Landing'));
+    
     var exp = require("./controllers/API");
     //Rendering Rountes
     app.route('/privacyPolicy').get(function (req, res) {     
