@@ -8,7 +8,7 @@ module.exports = function (app) {
     });
    
    app.route('/Home').get(function (req, res) {     
-        res.sendFile('index.html', { root: './landing/' });
+        res.sendFile('index.html', { root: './Landing/' });
     });
    
     app.route('/AboutUs').get(function (req, res) {
