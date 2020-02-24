@@ -9,9 +9,6 @@ module.exports = function (app) {
    
    app.route('/Home').get(function (req, res) 
     {
-       app.use(express.static('Landing/images/'));
-       app.use(express.static('Landing/css'));
-        app.use(express.static('Landing/js/'));
         res.sendFile('index.html', { root: './Landing/' });
     });
    
