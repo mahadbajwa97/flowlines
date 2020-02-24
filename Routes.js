@@ -1,15 +1,17 @@
 'use strict';
 module.exports = function (app) {
-    app.use(express.static('Landing/images/'));
-    app.use(express.static('Landing/css'));
-    app.use(express.static('Landing/js/'));
+    
     var exp = require("./controllers/API");
     //Rendering Rountes
     app.route('/privacyPolicy').get(function (req, res) {     
         res.sendFile('privacy_policy.html', { root: '.' });
     });
    
-   app.route('/Home').get(function (req, res) {     
+   app.route('/Home').get(function (req, res) 
+    {
+       app.use(express.static('Landing/images/'));
+       app.use(express.static('Landing/css'));
+        app.use(express.static('Landing/js/'));
         res.sendFile('index.html', { root: './Landing/' });
     });
    
