@@ -87,7 +87,7 @@ exports.Registers = function (req, res, User) {
                     });
                     //Create New Email
                     //mailer.Mail(User.fullName, User.emailAddress, SecretToken);
-                    setInterval(function () {mailer.Mail_1(User.emailAddress, User.fullName, SecretToken);}, 2000);
+                    mailer.Mail_1(User.emailAddress, User.fullName, SecretToken);
                     
                 }
             });
