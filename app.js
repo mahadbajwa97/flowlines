@@ -1,5 +1,5 @@
 const appInsights = require("applicationinsights");
-appInsights.setup("7e8fea7d-233d-46a3-ad96-d700c5a851ec");
+appInsights.setup("59b432da-e306-4be4-a09a-1d1e496ea97c");
 appInsights.start();
 const express = require('express'),
     app = express(),
