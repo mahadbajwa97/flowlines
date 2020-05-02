@@ -1,16 +1,16 @@
 var user = process.env.DBUser || 'mbajwa';
-var password = process.env.DBPassword || 'QWErtyuiop46';
-var server = process.env.DBServer || 'flowline.database.windows.net';
+var password = process.env.DBPassword || '13ssw54$$$';
+var server = process.env.DBServer || 'flowlinesserver.database.windows.net';
 // Create connection to database
 exports.dbconfig = {
     authentication: {
         options: {
             userName: 'mbajwa', // update me
-            password: 'QWErtyuiop46'
+            password: '13sw54$$$'
         },
         type: "default"
     },
-    server: 'flowline.database.windows.net', // update me
+    server: 'flowlinesserver.database.windows.net', // update me
     options: {
         database: "flowlines_db", //update me
         encrypt: true
