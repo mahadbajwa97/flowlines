@@ -181,17 +181,23 @@ exports.changeDP = function (req, res, Id, photoURL) {
         if (photoURL) {
             db.executeSql("exec changeDP @userId=" + Id + ", @photoURL ='" + photoURL + "'", function (data, err) {
                 if (err) {
-                    httpMsgs.show500(req, res, err);
+                    res.json({
+                        "success": 0
+                    });
                 }
                 else {
                     console.log(data);
-                    httpMsgs.sendJson(req, res, data);
+                    res.json({
+                        "success": 1
+                    });
                 }
             });
         }
     }
     catch (exc) {
-        httpMsgs.show500(req, res, exc);
+       res.json({
+                        "success": 0
+                    });
     }
 }
 
