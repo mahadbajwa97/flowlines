@@ -38,7 +38,7 @@ module.exports = function (app) {
     });
 
 
-    app.route('/changeDP/:id').put(function (req, res) {
+    app.route('/changeDP/:id').post(function (req, res) {
         exp.changeDP(req, res, req.params.id, req.body.photoURL);
     });
     app.route('/postFlow').post(function (req, res) {
