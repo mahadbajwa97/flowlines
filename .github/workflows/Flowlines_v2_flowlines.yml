@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '10.6.0'
 
     - name: npm install, build, and test
       run: |
@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'flowlines'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_808aad17a54c41f2b9e9b1a0ee8da7c5 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e8e76743f3924038bb12afedb50e8da9 }}
         package: .
