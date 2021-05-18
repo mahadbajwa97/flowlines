@@ -16,7 +16,7 @@
   display: block;
 } */
 body {
- overflow: clip;
+ overflow: scroll;
 }
 .drip {
   position: absolute;

@@ -6,6 +6,10 @@ const express = require('express'),
     bodyParser = require('body-parser');
 port = process.env.PORT || 3000;
 
+app.use(express.static('Landing/images'));
+app.use(express.static('Landing/css'));
+app.use(express.static('Landing/js'));
+
 app.listen(port);
 
 console.log('API server started on: ' + port);

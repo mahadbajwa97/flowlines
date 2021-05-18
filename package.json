@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "start": "node \"./core/Express server.js\""
+  },
   "dependencies": {
     "@sendgrid/mail": "^6.5.2",
     "applicationinsights": "^1.7.2",

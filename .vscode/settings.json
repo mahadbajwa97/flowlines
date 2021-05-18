@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ba4ca2bf-4c29-4313-b515-90168211c7cc/resourceGroups/flowlines/providers/Microsoft.Web/sites/flowlines",
+    "appService.deploySubpath": "."
+}
